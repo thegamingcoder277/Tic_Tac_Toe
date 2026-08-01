@@ -7,6 +7,11 @@ pygame.init()
 
 class Game:
     def __init__(self):
+        self.screen_width = 720
+        self.screen_height = 720
+        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        pygame.display.set_caption("Tic Tac Toe")
+
         self.states = {
             "pvp": PVP(self),
             "pvai": PVAI(self),
@@ -14,11 +19,6 @@ class Game:
         }
         self.state = self.states["menu"]
         self.running = True
-
-        self.screen_width = 720
-        self.screen_height = 720
-        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        pygame.display.set_caption("Tic Tac Toe")
 
     def change(self, name):
         self.state = self.states[name]
